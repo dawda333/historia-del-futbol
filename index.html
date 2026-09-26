@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia del Fútbol ?</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b1320;
+            color: white;
+        }
+
+        /* MENÚ */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(5, 20, 15, 0.95);
+            padding: 18px 40px;
+            z-index: 1000;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.4);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #35e06f;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #35e06f;
+        }
+
+        /* PORTADA */
+        .hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background:
+                linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.7)),
+                url("https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1600&q=80")
+                center/cover;
+        }
+
+        .hero-content {
+            animation: aparecer 1.5s ease;
+        }
+
+        .hero h1 {
+            font-size: 65px;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 15px black;
+        }
+
+        .hero p {
+            font-size: 23px;
+            margin-bottom: 30px;
+        }
+
+        .boton {
+            display: inline-block;
+            padding: 14px 30px;
+            background: #35e06f;
+            color: #06140a;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .boton:hover {
+            transform: scale(1.1);
+            background: white;
+        }
+
+        /* SECCIONES */
+        section {
+            padding: 100px 10%;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 50px;
+            color: #35e06f;
+        }
+
+        .historia {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .historia img {
+            width: 450px;
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: 0.4s;
+        }
+
+        .historia img:hover {
+            transform: scale(1.03);
+        }
+
+        .texto {
+            flex: 1;
+            min-width: 280px;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* TARJETAS */
+        .tarjetas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 25px;
+        }
+
+        .tarjeta {
+            background: #142235;
+            padding: 25px;
+            border-radius: 18px;
+            text-align: center;
+            transition: 0.4s;
+            border: 1px solid #263d55;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(53,224,111,0.25);
+        }
+
+        .tarjeta img {
+            width: 100%;
+            height: 170px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        .tarjeta h3 {
+            color: #35e06f;
+            margin-bottom: 10px;
+        }
+
+        .tarjeta p {
+            line-height: 1.6;
+        }
+
+        /* LÍNEA DEL TIEMPO */
+        .timeline {
+            border-left: 4px solid #35e06f;
+            padding-left: 30px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .evento {
+            background: #142235;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .evento:hover {
+            transform: translateX(10px);
+        }
+
+        .evento h3 {
+            color: #35e06f;
+            margin-bottom: 8px;
+        }
+
+        /* PIE */
+        footer {
+            background: #050b12;
+            text-align: center;
+            padding: 30px;
+            color: #aaa;
+        }
+
+        /* ANIMACIÓN */
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* MÓVIL */
+        @media (max-width: 700px) {
+            header {
+                padding: 15px;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav ul {
+                gap: 12px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- MENÚ -->
+    <header>
+        <nav>
+            <div class="logo">? FÚTBOL HISTÓRICO</div>
+
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#historia">Historia</a></li>
+                <li><a href="#jugadores">Jugadores</a></li>
+                <li><a href="#mundiales">Mundiales</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- PORTADA -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Historia del Fútbol</h1>
+            <p>Un viaje desde sus orígenes hasta el fútbol moderno.</p>
+            <a href="#historia" class="boton">Descubrir ?</a>
+        </div>
+    </section>
+
+
+    <!-- HISTORIA -->
+    <section id="historia">
+        <h2>?? La historia del fútbol</h2>
+
+        <div class="historia">
+
+            <img src="https://images.unsplash.com/photo-1553778263-73a83bab9b0c?auto=format&fit=crop&w=900&q=80">
+
+            <div class="texto">
+                <p>
+                    El fútbol es uno de los deportes más populares del mundo.
+                    Sus antecedentes se encuentran en diferentes juegos de pelota
+                    practicados hace siglos.
+                </p>
+
+                <br>
+
+                <p>
+                    El fútbol moderno comenzó a organizarse en Inglaterra durante
+                    el siglo XIX. En 1863 se creó la Football Association,
+                    que estableció reglas para el deporte.
+                </p>
+
+                <br>
+
+                <p>
+                    Con el paso del tiempo, el fútbol se extendió por muchos
+                    países y se convirtió en un deporte seguido por millones
+                    de personas.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- LÍNEA DEL TIEMPO -->
+    <section>
+        <h2>? Línea del tiempo</h2>
+
+        <div class="timeline">
+
+            <div class="evento">
+                <h3>1863 — Nacen las reglas modernas</h3>
+                <p>
+                    Se funda la Football Association en Inglaterra y se
+                    establecen reglas comunes para el fútbol.
+                </p>
+            </div>
+
+            <div class="evento">
+                <h3>1904 — Nace la FIFA</h3>
+                <p>
+                    Se crea la FIFA, organización internacional encargada
+                    de dirigir el fútbol mundial.
+                </p>
+            </div>
+
+            <div class="evento">
+                <h3>1930 — Primer Mundial</h3>
+                <p>
+                    Uruguay organiza el primer Mundial de fútbol.
+                </p>
+            </div>
+
+            <div class="evento">
+                <h3>Hoy — El fútbol moderno</h3>
+                <p>
+                    El fútbol se juega profesionalmente en prácticamente
+                    todo el planeta.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- JUGADORES -->
+    <section id="jugadores">
+        <h2>? Jugadores históricos</h2>
+
+        <div class="tarjetas">
+
+            <div class="tarjeta">
+                <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=600&q=80">
+                <h3>Pelé</h3>
+                <p>
+                    Futbolista brasileño considerado una de las grandes
+                    figuras de la historia del deporte.
+                </p>
+            </div>
+
+            <div class="tarjeta">
+                <img src="https://images.unsplash.com/photo-1552318965-6e6be7484ad1?auto=format&fit=crop&w=600&q=80">
+                <h3>Diego Maradona</h3>
+                <p>
+                    Leyenda argentina conocida por su enorme habilidad
+                    con el balón.
+                </p>
+            </div>
+
+            <div class="tarjeta">
+                <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=600&q=80">
+                <h3>Lionel Messi</h3>
+                <p>
+                    Futbolista argentino que ha desarrollado gran parte
+                    de su carrera en el fútbol europeo.
+                </p>
+            </div>
+
+            <div class="tarjeta">
+                <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=600&q=80">
+                <h3>Cristiano Ronaldo</h3>
+                <p>
+                    Futbolista portugués conocido por su trayectoria
+                    y numerosos récords goleadores.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- MUNDIALES -->
+    <section id="mundiales">
+        <h2>?? La Copa del Mundo</h2>
+
+        <div class="tarjetas">
+
+            <div class="tarjeta">
+                <h3>???? 1930</h3>
+                <p>Uruguay ganó el primer Mundial de la historia.</p>
+            </div>
+
+            <div class="tarjeta">
+                <h3>???? 1958</h3>
+                <p>Brasil consiguió su primer título mundial.</p>
+            </div>
+
+            <div class="tarjeta">
+                <h3>???? 1986</h3>
+                <p>Argentina ganó el Mundial celebrado en México.</p>
+            </div>
+
+            <div class="tarjeta">
+                <h3>???? 2022</h3>
+                <p>Argentina ganó el Mundial celebrado en Catar.</p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>? Historia del Fútbol © 2026</p>
+        <p>Creado para aprender sobre la historia del deporte.</p>
+    </footer>
+
+</body>
+</html>
